@@ -48,6 +48,19 @@ describe('Enmarcando nombres', () => {
         const names = ['midu', 'madeval'];
         expect(createFrame(names).columns).toEqual(11)
     });
+    it('should correctly format names with appropriate padding', () => {
+        const names = ['a', 'bb', 'ccc'];
+        const expected = `
+*******
+* a   *
+* bb  *
+* ccc *
+*******
+`.trim();
+        const result = createFrame(names).frame;
+    
+        expect(result).toEqual(expected);
+    });
     it('should generate a framed output with names', () => {
         const names = ['midu', 'madeval', 'educalvolpz'];
         const expected = `
