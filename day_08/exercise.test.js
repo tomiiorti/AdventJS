@@ -36,13 +36,13 @@ describe('La carrera de los renos', () => {
         expect(race).toEqual(expected);
     });
 
-    it('debería colocar el reno en una posición positiva', () => {
+    it('should place the reindeer in a positive position', () => {
         const result = drawRace([5], 10);
         const expected = '~~~~~r~~~~ /1';
         expect(result).toEqual(expected);
     });
 
-    it('debería posicionar correctamente los renos con índices positivos y negativos', () => {
+    it('should correctly position the reindeer with positive and negative indices', () => {
         const race = drawRace([0, 5, -3], 10);
         const expected =
             '  ~~~~~~~~~~ /1\n' +
@@ -52,7 +52,7 @@ describe('La carrera de los renos', () => {
         expect(race).toEqual(expected);
     });
 
-    it('debería funcionar con múltiples índices mixtos', () => {
+    it('should work with multiple mixed indexes', () => {
         const race = drawRace([2, -1, 0, 5], 8);
         const expected =
             '   ~~r~~~~~ /1\n' +
@@ -63,7 +63,7 @@ describe('La carrera de los renos', () => {
         expect(race).toEqual(expected);
     });
 
-    it('debería manejar una pista más larga con diferentes índices', () => {
+    it('should handle longer track with different indexes', () => {
         const race = drawRace([3, 7, -2], 12);
         const expected =
             '  ~~~r~~~~~~~~ /1\n' +
