@@ -2,17 +2,18 @@ describe('El ataque del grinch', () => {
     function fixPackages(packages) {
         let stack = [];
         let chars = packages.split('');
-        for (let i = 1; i < packages.length; i++) {
+        for (let i = 0; i < packages.length; i++) {
             if (chars[i] === '(') {
                 stack.push(i);
             } else if (chars[i] === ')') {
                 const start = stack.pop();
                 const end = i;
                 const reversed = chars.slice(start + 1, end).reverse();
-                chars.splice(start, end - start + 1, ...reversed);
-            }
-
-        }
+                for (let j = start + 1, k = 0; j < end; j++, k++) {
+                    chars[j] = reversed[k];
+                };
+            };
+        };
         return chars.filter(char => char !== '(' && char !== ')').join('');
     };
     it('Test 1', () => {
